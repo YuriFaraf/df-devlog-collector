@@ -33,6 +33,7 @@ devlogs.each do |devlog|
     июля августа сентября октября ноября декабря]
   date_ru = "#{dd} #{months_ru[mm.to_i-1]} #{yy} года"
 
+  puts "Готовлю новость от #{date_ru}."
   doc = "Новости разработки:\n\n"
   doc += "🇷🇺 #{date_ru}\n\n🇬🇧 "
   # TODO: до первого гсаба нужно спасти картинки и ссылки из текста
@@ -42,5 +43,6 @@ devlogs.each do |devlog|
     gsub(/(\r\n|\r|\n)+/, "\n").strip
   doc += "\n\n#Development_Log@dwarf.fortress #DF #DwarfFortress"
 
+  puts "Сохраняю #{date}."
   File.write("#{__dir__}/result/#{date}.txt", doc)
 end
